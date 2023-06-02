@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   listData: any = []
   showModalBox: boolean = false;
   playerId: number | undefined = undefined;
+  totalCalculado: number = 0;
 
   formGroup: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -37,6 +38,12 @@ export class AppComponent implements OnInit {
       this.page = this.page - 1;
       this.refreshList()
     }
+  }
+
+  calculate() {
+    this.api.calculate().subscribe((value: any) => {
+      this.totalCalculado = value;
+    })
   }
 
   refreshList() {

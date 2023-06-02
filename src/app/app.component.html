@@ -1,18 +1,28 @@
-<div class="container-fluid p-5 bg-primary text-white text-center">
+<div class="container-fluid p-5 bg-dark text-white text-center">
   <h1>Listado de jugadores</h1>
   <p>Desarrollador Sair Garcés</p>
 </div>
 <div class="container mt-3">
-  <button type="button" class="btn btn-primary" style="margin: 10px 0 30px 0;" data-toggle="tooltip"
-    data-placement="top" title="Agregar" data-bs-toggle="modal" data-bs-target="#addPlayer">
-    <i class="bi bi-person-plus-fill m-2"></i>Agregar
-  </button>
+  <div style="display: flex; justify-content: space-between;">
+    <button type="button" class="btn btn-dark" style="margin: 10px 0 30px 0;" data-toggle="tooltip"
+      data-placement="top" title="Agregar" data-bs-toggle="modal" data-bs-target="#addPlayer">
+      <i class="bi bi-person-plus-fill m-2"></i>Agregar
+    </button>
+
+    <button type="button" class="btn btn-dark" style="margin: 10px 0 30px 0;" data-toggle="tooltip"
+    data-placement="top" title="Calcular" (click)="calculate()">
+    <i class="bi bi-calculator"></i>Calcular Promedio Edad
+    </button>
+  </div>
+  <div style="display: flex; justify-content: end;">
+      <p>Total promedio: <span style="font-weight: bold;"> {{totalCalculado | number}} Años</span></p>
+  </div>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>id</th>
         <th>Nombre</th>
-        <th>Copa</th>
+        <th>Copas</th>
         <th>Grupo</th>
         <th>Posición</th>
         <th>Fecha de nacimiento</th>
@@ -26,9 +36,9 @@
         <td>{{data.cups}}</td>
         <td>{{data.team}}</td>
         <td>{{data.position}}</td>
-        <td>{{data.birthdate}}</td>
+        <td>{{data.birthdate | date:"mediumDate" }}</td>
         <td>
-          <button type="button" class="btn btn-primary" style="margin-right: 5px;" data-toggle="tooltip"
+          <button type="button" class="btn btn-dark" style="margin-right: 5px;" data-toggle="tooltip"
             data-placement="top" title="Editar" data-bs-toggle="modal" data-bs-target="#editPlayer"
             (click)="editData(data)">
             <i class="bi bi-pencil"></i>
@@ -67,8 +77,8 @@
             <input type="date" class="form-control" placeholder="Fecha de nacimiento" formControlName="birthdate">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary" (click)="submitAdd()">Agregar jugador</button>
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-dark" (click)="submitAdd()">Agregar jugador</button>
           </div>
         </form>
       </div>
@@ -96,8 +106,8 @@
             <input type="date" class="form-control" placeholder="Fecha de nacimiento" formControlName="birthdate">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary" (click)="submitEdit()">Editar jugador</button>
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-dark" (click)="submitEdit()">Editar jugador</button>
           </div>
         </form>
       </div>

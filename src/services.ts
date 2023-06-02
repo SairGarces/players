@@ -32,6 +32,9 @@ export class Services {
   public get(): Observable<any> {
     return this.http.get(`${this.url}/read`);
   }
+  public calculate(): Observable<any> {
+    return this.http.get(`${this.url}/calculate`);
+  }
 
   public delete(id: number): Observable<any> {
     return this.http.delete(`${this.url}/delete`, { body: { id: id } });
