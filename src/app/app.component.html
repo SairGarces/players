@@ -15,7 +15,7 @@
     </button>
   </div>
   <div style="display: flex; justify-content: end;">
-      <p>Total promedio: <span style="font-weight: bold;"> {{totalCalculado | number}} Años</span></p>
+      <p *ngIf="totalCalculado != 0">Total promedio: <span style="font-weight: bold;"> {{totalCalculado | number}} Años</span></p>
   </div>
   <table class="table table-hover">
     <thead>

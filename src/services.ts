@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { env } from './environment';
@@ -26,7 +26,9 @@ export class Services {
       id: id
     }
 
-    return this.http.put(`${this.url}/update`, dato);
+    return this.http.put(`${this.url}/update`, dato)//.pipe(catchError(() => { return this.http.post(`${this.url}/updateWithError`, dato) }))
+
+
   }
 
   public get(): Observable<any> {
